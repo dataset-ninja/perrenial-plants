@@ -1,0 +1,1 @@
+Perrenial Plants Detection data uses [MIT License](https://spdx.org/licenses/MIT.html).

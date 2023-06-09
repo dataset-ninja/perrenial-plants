@@ -3,38 +3,40 @@ from typing import Dict, List, Optional
 ##################################
 # * Before uploading to instance #
 ##################################
-PROJECT_NAME: str = None
-PROJECT_NAME_FULL: str = None
+PROJECT_NAME: str = "Perrenial Plants Detection"
+PROJECT_NAME_FULL: str = "Perrenial Plants Detection"
 
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: str = "None"
+LICENSE: str = "MIT License"
 # Available licenses: ["CC0", "CC BY-SA 4.0"]
 
-INDUSTRIES: List[str] = None
+INDUSTRIES: List[str] = ["general domain"]
 # Available industries: ["general domain"]
 
-CV_TASKS: List[str] = None
+CV_TASKS: List[str] = ["instance segmentation"]
 # Available cv tasks: ["semantic segmentation", "instance segmentation"]
 
-ANNOTATION_TYPES: List[str] = None
+ANNOTATION_TYPES: List[str] = ["instance segmentation"]
 # Available annotation types: ["semantic segmentation", "instance segmentation"]
 
-RELEASE_YEAR: int = None
-HOMEPAGE_URL: str = None
+RELEASE_YEAR: int = 2021
+HOMEPAGE_URL: str = "https://www.kaggle.com/datasets/benediktgeisler/perrenial-plants-detection"
 # e.g. "https://some.com/dataset/homepage"
 
-PREVIEW_IMAGE_ID: int = None
+PREVIEW_IMAGE_ID: int = 350493
 # This should be filled AFTER uploading images to instance, just ID of any image.
 
-GITHUB_URL: str = None
+GITHUB_URL: str = "https://github.com/dataset-ninja/perrenial-plants"
 # URL to GitHub repo on dataset ninja (e.g. "https://github.com/dataset-ninja/some-dataset")
 
 ##################################
 ### * Optional after uploading ###
 ##################################
-DOWNLOAD_ORIGINAL_URL: Optional[str] = None
+DOWNLOAD_ORIGINAL_URL: Optional[
+    str
+] = "https://www.kaggle.com/datasets/benediktgeisler/perrenial-plants-detection/download?datasetVersionNumber=2"
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
 CLASS2COLOR: Optional[Dict[str, List[str]]] = None
@@ -61,7 +63,7 @@ CITATION_TEMPLATE = (
     "please cite the following reference (to be prepared after the challenge workshop) "
     "in any publications:\n\n"
     "```\n@misc{{{project_name},\n"
-    '\tauthor = "TO BE FILLED MANUALLY!",\n'
+    '\tauthor = "Benedikt Geisler",\n'
     '\ttitle = "{project_name_full}",\n'
     '\thowpublished = "{homepage_url}"\n}}\n```\n\n'
     "[🔗 Source]({homepage_url})"

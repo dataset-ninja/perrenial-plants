@@ -1,4 +1,14 @@
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Union
+
+from dataset_tools.templates import (
+    AnnotationType,
+    CVTask,
+    Industry,
+    Domain,
+    Research,
+    License,
+    Category,
+)
 
 ##################################
 # * Before uploading to instance #
@@ -9,23 +19,25 @@ PROJECT_NAME_FULL: str = "Perrenial Plants Detection"
 ##################################
 # * After uploading to instance ##
 ##################################
-LICENSE: str = "MIT License"
-# Available licenses: ["CC0", "CC BY-SA 4.0"]
+LICENSE: License = License.MIT()
+APPLICATIONS: List[Union[Industry, Domain, Research]] = [
+    Industry.Agricultural(),
+    Domain.General(),
+    Research.Agricultural(),
+]
+CATEGORY: Category = Category.Agriculture()
 
-INDUSTRIES: List[str] = ["general domain"]
-# Available industries: ["general domain"]
+CV_TASKS: List[CVTask] = [CVTask.ObjectDetection()]
+ANNOTATION_TYPES: List[AnnotationType] = [AnnotationType.ObjectDetection()]
 
-CV_TASKS: List[str] = ["instance segmentation"]
-# Available cv tasks: ["semantic segmentation", "instance segmentation"]
+RELEASE_DATE: Optional[str] = None  # e.g. "YYYY-MM-DD"
+if RELEASE_DATE is None:
+    RELEASE_YEAR: int = 2021
 
-ANNOTATION_TYPES: List[str] = ["instance segmentation"]
-# Available annotation types: ["semantic segmentation", "instance segmentation"]
-
-RELEASE_YEAR: int = 2021
 HOMEPAGE_URL: str = "https://www.kaggle.com/datasets/benediktgeisler/perrenial-plants-detection"
 # e.g. "https://some.com/dataset/homepage"
 
-PREVIEW_IMAGE_ID: int = 350493
+PREVIEW_IMAGE_ID: int = 350444
 # This should be filled AFTER uploading images to instance, just ID of any image.
 
 GITHUB_URL: str = "https://github.com/dataset-ninja/perrenial-plants"
@@ -34,66 +46,64 @@ GITHUB_URL: str = "https://github.com/dataset-ninja/perrenial-plants"
 ##################################
 ### * Optional after uploading ###
 ##################################
-DOWNLOAD_ORIGINAL_URL: Optional[
-    str
-] = "https://www.kaggle.com/datasets/benediktgeisler/perrenial-plants-detection/download?datasetVersionNumber=2"
+DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = None
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
 CLASS2COLOR: Optional[Dict[str, List[str]]] = None
 # If specific colors for classes are needed, fill this dict (e.g. {"class1": [255, 0, 0], "class2": [0, 255, 0]})
 
-##################################
-#### ? Templates. Do not edit ####
-##################################
+PAPER: Optional[str] = None
+CITATION_URL: Optional[str] = None
+AUTHORS: Optional[List[str]] = ["Benedikt Geisler"]
 
-LICENSE_URLS = {
-    "CCO": "https://creativecommons.org/publicdomain/zero/1.0/",
-    "CC BY-SA 4.0": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "MIT License": "https://spdx.org/licenses/MIT.html",
-}
+ORGANIZATION_NAME: Optional[Union[str, List[str]]] = None
+ORGANIZATION_URL: Optional[Union[str, List[str]]] = None
 
-LICENSE_TEXTS = {
-    "CCO": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
-    "CC BY-SA 4.0": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)",
-    "MIT License": "MIT License",
-}
-
-CITATION_TEMPLATE = (
-    "If you make use of the {project_name_full} data, "
-    "please cite the following reference (to be prepared after the challenge workshop) "
-    "in any publications:\n\n"
-    "```\n@misc{{{project_name},\n"
-    '\tauthor = "Benedikt Geisler",\n'
-    '\ttitle = "{project_name_full}",\n'
-    '\thowpublished = "{homepage_url}"\n}}\n```\n\n'
-    "[🔗 Source]({homepage_url})"
-)
-
-LICENSE_TEMPLATE = "{project_name_full} data uses [{license_text}]({license_url})."
-
-README_TEMPLATE = "# {project_name_full}\n\n{project_name} is a dataset for {cv_tasks} tasks."
+SLYTAGSPLIT: Optional[Dict[str, List[str]]] = None
+TAGS: Optional[List[str]] = None
 
 ##################################
 ###### ? Checks. Do not edit #####
 ##################################
 
 
-def check_before_upload():
-    fields_before_upload = [PROJECT_NAME, PROJECT_NAME_FULL]
+def check_names():
+    fields_before_upload = [PROJECT_NAME]  # PROJECT_NAME_FULL
     if any([field is None for field in fields_before_upload]):
         raise ValueError("Please fill all fields in settings.py before uploading to instance.")
 
 
-def check_after_upload():
-    fields_after_upload = [
-        LICENSE,
-        INDUSTRIES,
-        CV_TASKS,
-        ANNOTATION_TYPES,
-        RELEASE_YEAR,
-        HOMEPAGE_URL,
-        PREVIEW_IMAGE_ID,
-        GITHUB_URL,
-    ]
-    if any([field is None for field in fields_after_upload]):
+def get_settings():
+    if RELEASE_DATE is not None:
+        global RELEASE_YEAR
+        RELEASE_YEAR = int(RELEASE_DATE.split("-")[0])
+
+    settings = {
+        "project_name": PROJECT_NAME,
+        "license": LICENSE,
+        "applications": APPLICATIONS,
+        "category": CATEGORY,
+        "cv_tasks": CV_TASKS,
+        "annotation_types": ANNOTATION_TYPES,
+        "release_year": RELEASE_YEAR,
+        "homepage_url": HOMEPAGE_URL,
+        "preview_image_id": PREVIEW_IMAGE_ID,
+        "github_url": GITHUB_URL,
+    }
+
+    if any([field is None for field in settings.values()]):
         raise ValueError("Please fill all fields in settings.py after uploading to instance.")
+
+    settings["release_date"] = RELEASE_DATE
+    settings["project_name_full"] = PROJECT_NAME_FULL or PROJECT_NAME
+    settings["download_original_url"] = DOWNLOAD_ORIGINAL_URL
+    settings["class2color"] = CLASS2COLOR
+    settings["paper"] = PAPER
+    settings["citation_url"] = CITATION_URL
+    settings["authors"] = AUTHORS
+    settings["organization_name"] = ORGANIZATION_NAME
+    settings["organization_url"] = ORGANIZATION_URL
+    settings["slytagsplit"] = SLYTAGSPLIT
+    settings["tags"] = TAGS
+
+    return settings

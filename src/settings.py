@@ -2,12 +2,12 @@ from typing import Dict, List, Optional, Union
 
 from dataset_tools.templates import (
     AnnotationType,
-    CVTask,
-    Industry,
-    Domain,
-    Research,
-    License,
     Category,
+    CVTask,
+    Domain,
+    Industry,
+    License,
+    Research,
 )
 
 ##################################
@@ -21,9 +21,7 @@ PROJECT_NAME_FULL: str = "Perrenial Plants Detection"
 ##################################
 LICENSE: License = License.MIT()
 APPLICATIONS: List[Union[Industry, Domain, Research]] = [
-    Industry.Agricultural(),
-    Domain.General(),
-    Research.Agricultural(),
+    Industry.Agricultural(is_used=False),
 ]
 CATEGORY: Category = Category.Agriculture()
 
@@ -46,7 +44,9 @@ GITHUB_URL: str = "https://github.com/dataset-ninja/perrenial-plants"
 ##################################
 ### * Optional after uploading ###
 ##################################
-DOWNLOAD_ORIGINAL_URL: Optional[Union[str, dict]] = None
+DOWNLOAD_ORIGINAL_URL: Optional[
+    Union[str, dict]
+] = "https://www.kaggle.com/datasets/benediktgeisler/perrenial-plants-detection/download?datasetVersionNumber=2"
 # Optional link for downloading original dataset (e.g. "https://some.com/dataset/download")
 
 CLASS2COLOR: Optional[Dict[str, List[str]]] = None

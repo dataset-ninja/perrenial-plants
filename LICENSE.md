@@ -1,1 +1,1 @@
-Perrenial Plants Detection is under [MIT License](https://spdx.org/licenses/MIT.html) license.
+Perrenial Plants Detection is under [MIT](https://spdx.org/licenses/MIT.html) license.

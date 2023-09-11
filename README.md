@@ -1,3 +1,3 @@
 # Perrenial Plants Detection
 
-Detecting perrenial plants with Detectron2 - tell weeds from plants
+Perrenial Plants Detection is a dataset for object detection task tasks.

@@ -4,6 +4,4 @@ The dataset consists of 392 images with 1159 labeled objects belonging to 14 dif
 
 Images in the Perrenial Plants Detection dataset have bounding box annotations. There are 2 (1% of the total) unlabeled images (i.e. without annotations). There are 3 splits in the dataset: *test* (21 images), *train* (294 images), and *val* (77 images). The dataset was released in 2021.
 
-Here are the visualized examples for each of the 14 classes:
-
-[Dataset classes](https://github.com/dataset-ninja/perrenial-plants/raw/main/visualizations/classes_preview.webm)
+<img src="https://github.com/dataset-ninja/perrenial-plants/raw/main/visualizations/poster.png">

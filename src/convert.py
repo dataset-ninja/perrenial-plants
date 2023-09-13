@@ -63,7 +63,7 @@ def convert_and_upload_supervisely_project(
 
                     # get class name, create labels
                     bbox = sly.Rectangle(top=ymin, left=xmin, bottom=ymax, right=xmax)
-                    class_name = obj["name"]
+                    class_name = obj["name"].lower()
                     obj_class = meta.get_obj_class(class_name)
                     if obj_class is None:
                         obj_class = sly.ObjClass(class_name, sly.Rectangle)

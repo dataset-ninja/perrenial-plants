@@ -15,6 +15,7 @@ from dataset_tools.templates import (
 ##################################
 PROJECT_NAME: str = "Perrenial Plants Detection"
 PROJECT_NAME_FULL: str = "Perrenial Plants Detection"
+HIDE_DATASET = False
 
 ##################################
 # * After uploading to instance ##

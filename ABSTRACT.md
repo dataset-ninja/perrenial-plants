@@ -1,4 +1,4 @@
-The ``Perrenial Plants Detection`` dataset's author discusses the automation of weed removal in the cultivation of perennial plants. Currently, manual weed removal is a weekly chore for the entire plant population, involving repetitive and physically demanding tasks. In his notebook, he seeks to address two primary questions:
+The **Perrenial Plants Detection** dataset's author discusses the automation of weed removal in the cultivation of perennial plants. Currently, manual weed removal is a weekly chore for the entire plant population, involving repetitive and physically demanding tasks. In his notebook, he seeks to address two primary questions:
 
 1. How reliable can weed be detected by using optical RGB inspection in combination with a state-of-the-art machine learning model?
 2. When building the dataset, does it help to additionally provide a keypoint that marks the centre of the plant to later automatically identify the centre of the plant?

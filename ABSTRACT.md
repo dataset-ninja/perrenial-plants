@@ -4,4 +4,5 @@ The **Perrenial Plants Detection** dataset's author discusses the automation of 
 2. When building the dataset, does it help to additionally provide a keypoint that marks the centre of the plant to later automatically identify the centre of the plant?
 
 Over a span of seven weeks, from mid-April to June, images were collected at a plant nursery in southern Germany using a Fuji X-T2 camera, generating 392 images of 24MP (4000x6000px) resolution.
+
 The dataset is divided into two parts: one for weed classification and another for keypoint detection, with some overlapping images.

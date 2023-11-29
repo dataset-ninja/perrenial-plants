@@ -1,6 +1,6 @@
 Dataset **Perrenial Plants Detection** can be downloaded in [Supervisely format](https://developer.supervisely.com/api-references/supervisely-annotation-json-format):
 
- [Download](https://assets.supervisely.com/supervisely-supervisely-assets-public/teams_storage/2/X/FS/2ZFaVRbCd4LSo9aJmRkud8u7xVNBlHZ2awQv3f5RpYrECisqC67T6pvSaUDQVCnp8PO5mMRUe6fW7EsO0tZsUdO7vV3plHWbYjyEm5Kq7SlDDAxjCweJr1A1HTri.tar)
+ [Download](https://www.dropbox.com/scl/fi/k1nmqdyf1kru9w40ekyor/perrenial-plants-detection-DatasetNinja.tar?rlkey=5wzuhacd8x0v67fldh8owz5fi&dl=1)
 
 As an alternative, it can be downloaded with *dataset-tools* package:
 ``` bash
